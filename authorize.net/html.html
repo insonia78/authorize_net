@@ -1,0 +1,369 @@
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width" content="user-scalable=yes" />
+    <meta name="description" content="Authorize.Net API Documentation">
+    <meta name="keywords" content="AIM ARB CIM Reporting">
+
+    <title>Authorize.Net API Documentation</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Documentation extras -->
+    <link href="dist/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="dist/css/docs.min.css" rel="stylesheet" type="text/css" />
+    <link href="dist/css/anet.css" rel="stylesheet" type="text/css" />
+    <link href="dist/css/codemirror.min.css" rel="stylesheet" type="text/css" />
+    
+    <script src= "js/jquery.js" ></script>
+    <script src= "js/jquery-ui.js" ></script>
+    <!--[if lt IE 9]><script src="http://getbootstrap.com/assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link href="http://developer.authorize.net/favicon.ico" rel="shortcut icon" />
+<script>
+         $(document).ready(function(){
+                                                             
+                                                              $("#submit_reg").click(function(){
+															  
+                                                                  
+                                                              
+                                                              var request = $.ajax({
+                                                                      url: "php/getProfile.php",
+                                                                      method: "POST",
+                                                                      data: { txtLoginID_main : $("#txtLoginID-main").val(), txtTransactionKey_main:  $("#txtTransactionKey-main").val()  },
+                                                                      dataType: "html"
+                                                                    });
+
+                                                                    request.done(function( msg ) {
+                                                                      
+                                                                      if(msg == "true")
+                                                                      {
+                                                                          
+                                                                          window.location.href = "http://developer.authorize.net/api/reference/features/customer_profiles.html";
+                                                                      }
+                                                                      else
+                                                                      {        
+                                                                       alert(msg);
+                                                                       
+                                                                      }
+                                                                    });
+
+                                                                    request.fail(function( jqXHR, textStatus ) {
+                                                                      alert( "Request failed: " + textStatus );
+                                                                    });
+                                                                  
+                                                              });
+                                                              
+        
+                                                               
+                                                           }); 
+                                                            
+                                                            
+                                                            </script>
+</head>
+<body data-spy="scroll" data-target="#apiRefGuideNavID">
+
+    <!--Developers Home page-->
+    <div class="conatiner no-padding developer">
+        <div class="wrap">
+            <div class="col-md-12 no-padding developer-wrapper">
+                <div class="developer-inner">
+                    <!-- Developer Utility bar-->
+                    <header class="container utility-bar">
+                        <div class="wrap">
+                            <div class="row">
+                                <div id="logo" class="col-md-3">
+                                    <a href="/" tabindex="1">
+                                        <img src="dist/imgs/developer/logos/logo-developer-authorizenet.png" alt="Developer.Authorize.Net" />
+                                    </a>
+                                </div>
+                                <nav class="col-md-7 main-menu-wrapper">
+                                    <ul class="main-menu full-width no-margin">
+                                        <li class="api main-menu-item">
+                                            <a href="javascript:void(0)" class="main-menu-link" data-dev-submenu="dev-submenu-1" tabindex="2" data-href="/api/">API</a>
+                                        </li>
+                                        <li class="hello-world main-menu-item">
+                                            <a href="javascript:void(0)" class="main-menu-link" data-dev-submenu="dev-submenu-2" tabindex="7" data-href="/hello_world/">Hello World</a>
+                                        </li>
+                                        <li class="support main-menu-item">
+                                            <a href="javascript:void(0)" data-dev-submenu="dev-submenu-3" tabindex="12" data-href="developer-support.html">Support</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                <div class="col-md-1 sign-in no-padding main-menu-item">
+                                    <span class="btn-blue-dark border-white text-white sign-in-button" data-dev-submenu="dev-submenu-4">
+                                      <a href="javascript:void()" tabindex="21">Sign in</a>
+                                    </span>
+                                </div>
+                                <div class="col-md-1 search main-menu-item">
+                                    <a href="javascript:void(0)" class="search-cta" data-dev-submenu="dev-submenu-5" tabindex="24">
+                                        <img src="dist/imgs/developer/icons/icon-search.png" alt="Search" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+                    <div class="container-outter">
+                        <div class="container utility-bar dev-submenu dev-submenu-1">
+                            <div class="wrap">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <h3>OUR API</h3>
+                                    </div>
+                                    <div class="col-md-3 dev-submenu-links-col">
+                                        <a href="/api/" tabindex="3">API Features</a>
+                                        <a href="/api/reference/" tabindex="4">API Reference </a>
+                                        <a href="/api/samplecode/" tabindex="5">Sample Code</a>
+                                    </div>
+                                    <div class="col-md-3 dev-submenu-links-col">
+                                        <a href="https://github.com/AuthorizeNet" tabindex="6">SDKs [on GitHub]</a>
+                                        <a href="/api/changes/" tabindex="7">API Change Log</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container utility-bar dev-submenu dev-submenu-2">
+                            <div class="wrap">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <h3>Hello World</h3>
+                                    </div>
+                                    <div class="col-md-3 dev-submenu-links-col">
+                                        <a href="/hello_world/" tabindex="8">Get Started</a>
+                                        <a href="/hello_world/common_setup_questions/" tabindex="9">Common Setup Questions</a>
+                                        <a href="/hello_world/testing_guide/" tabindex="9">Testing Guide</a>
+                                    </div>
+                                    <div class="col-md-3 dev-submenu-links-col">
+                                        <a href="http://www.authorize.net/resources/howitworksdiagram/" tabindex="10">How Payments Work </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container utility-bar dev-submenu dev-submenu-3">
+                            <div class="wrap">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <h3>Support</h3>
+                                    </div>
+                                    <div class="col-md-3 dev-submenu-links-col">
+                                        <a href="/support/" tabindex="13">Get Support</a>
+                                        <a href="http://community.developer.authorize.net/t5/News-and-Announcements/bd-p/News_Annoucements" tabindex="14">News and Announcements</a>
+                                        <a href="http://community.developer.authorize.net/t5/Integration-and-Testing/bd-p/Integration01" tabindex="15">Forums</a>
+                                    </div>
+                                    <div class="col-md-3 dev-submenu-links-col">
+                                        <a href="http://github.com/AuthorizeNet" tabindex="16">Authorize.Net on GitHub</a>
+                                        <a href="http://stackoverflow.com/questions/tagged/authorize.net" tabindex="17">Authorize.Net on Stack Overflow</a>
+                                        <a href="http://community.developer.authorize.net/t5/The-Authorize-Net-Developer-Blog/bg-p/DeveloperBlog" tabindex="18">Developer Blog</a>
+                                    </div>
+                                    <div class="col-md-3 dev-submenu-links-col last">
+                                        <a href="/api/reference/responseCodes.html" tabindex="19">Response (Error) Codes</a>
+                                        <a href="/support/faqs/" tabindex="20">FAQs</a>
+                                        <a href="/support/contact_us/" tabindex="21">Contact Us</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container utility-bar dev-submenu dev-submenu-4">
+                            <div class="wrap">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <h3>Sign In</h3>
+                                    </div>
+                                    <div class="col-md-3 dev-submenu-links-col">
+                                        <a href="https://sandbox.authorize.net" tabindex="22">Sandbox</a>
+                                        <a href="https://account.authorize.net/interfaces/reseller/frontend/login.aspx" tabindex="23">Affiliate</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container utility-bar dev-submenu dev-submenu-5">
+                            <div class="wrap">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <h3>Search Developer Site</h3>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <form id="dev-menu-search-form" name="dev-menu-search-form" class="dev-menu-search-form">
+                                            <input type="submit" id="dev-menu-search-cta" name="dev-menu-search-cta" class="dev-menu-search-cta" text="" tabindex="29" />
+                                            <input id="dev-menu-search-textfield" name="dev-menu-search-textfield" type="text" class="dev-menu-search-textfield" data-placeholder="Enter questions, specific items, or Document IDs" tabindex="28" />
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /Developer Utility bar-->
+
+                        <!--Developer home page text bar module-->    	
+                        <div class="container api-reference-header-bar bs-docs-container">
+                            <div class="wrap" id="APIRefPageID" >
+                                <div class="col-md-9" role="main">
+                                    <div class="bs-docs-section">
+                                        <h1 class="title">API Reference</h1>
+
+                                        <h2 id="authentication" class="section-title text-dev-orange">Authentication</h2>
+                                        <p>All calls to the Authorize.Net API require merchant authentication. <a href="https://developer.authorize.net/hello_world/sandbox/" target="_blank">Sign up for a sandbox account</a> to get started quickly.
+                                        </p>
+                                        <ul id="myTab" class="nav nav-tabs">
+                                            <li><a href="#authentication-fields" data-toggle="tab">Fields</a></li>
+                                            <li><a id="authentication-sampleTryIt" href="#console-authentication-sample" data-toggle="tab">Try it</a></li>
+                                            <li class="active"><a href="#authentication-keys" data-toggle="tab">Sandbox Credentials</a></li>
+                                            <li><a href="#authentication-endpoint" data-toggle="tab">API Endpoints</a></li>
+                                        </ul>
+                                        <div id="myTabContent" class="tab-content">
+                                            <div class="tab-pane fade in" id="authentication-fields">
+                                                <p><em>merchantAuthentication</em>
+                                                </p>
+                                                <table class="table table-condensed">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Element</th>
+                                                            <th>Description</th>
+                                                            <th>Format</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>name</td>
+                                                            <td><strong>Required.</strong>
+                                                                <br/>The merchant’s valid API login ID.
+                                                                <br/>Submit the API login ID used to submit transactions.</td>
+                                                            <td>Up to 25 characters.</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>transactionKey</td>
+                                                            <td><strong>Required.</strong>
+                                                                <br/>The merchant’s valid transaction key.
+                                                                <br/>Submit the transaction key obtained by the merchant from the Merchant Interface.</td>
+                                                            <td>16 characters.</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="tab-pane fade" id="console-authentication-sample">
+                                                <form method="post" action="">     
+                                                    <div class="toggleButton-cont">
+                                                        <span class="header">Request:</span>
+                                                        <button type="button" class="btn btn-primary btn-xs showJSONAPI btn-inner-tab" textareaid="authentication-sample">JSON</button>
+                                                        <button type="button" class="btn btn-xs showXMLAPI btn-inner-tab"  textareaid="authentication-sample">XML</button>  
+                                                        
+                                                    </div>
+                                                    <div class="showCodeCont">
+                                                        <p class="bg-danger" style="display:none!important" id="betawarning-authentication-sample">JSON Support is in BETA, please contact developer@authorize.net if you intend to use in production.</p>
+                                                        <p>
+                                                            <textarea class="sample-request" id="txtReqXml-authentication-sample" name="txtReqXml" cols="80" rows="6" style="">
+&lt;authenticateTestRequest xmlns=&quot;AnetApi/xml/v1/schema/AnetApiSchema.xsd&quot;&gt;
+    &lt;merchantAuthentication&gt;
+        &lt;name&gt;API_LOGIN_ID&lt;/name&gt;
+        &lt;transactionKey&gt;API_TRANSACTION_KEY&lt;/transactionKey&gt;
+    &lt;/merchantAuthentication&gt;
+&lt;/authenticateTestRequest&gt;
+                                                            </textarea>
+                                                            <textarea class="sample-json-request" id="txtReqJsn-authentication-sample" name="txtReqJsn" cols="80" rows="6" style="display:none!important">
+{
+    "authenticateTestRequest" {
+        "merchantAuthentication": {
+            "name": "API_LOGIN_ID",
+            "transactionKey": "API_TRANSACTION_KEY"
+        }
+    }  
+}
+                                                            </textarea>
+                                                        </p>
+                                                        <p>
+                                                            <button type="button" id="btnSend-authentication-sample" name="btnSend" class="btn btn-primary">SEND</button>
+                                                            <button type="button" id="btnReset-authentication-sample" name="btnReset" class="btn btn" onclick="">Reset</button>
+                                                             <span class="ie9msg btn bg-danger" disabled="" style="font-style: italic;">Live API Console requests are not supported in IE9 or below.</span>
+                                                        </p>
+                                                    </div>
+                                                </form>
+
+                                                <div class="authenticationDiv" id="auth-authentication-sample">
+                                                    <p>Enter your sandbox credentials below and all the sample requests will be run against this account. You can sign up for an account really quickly <a href="https://developer.authorize.net/hello_world/sandbox/" target="_blank">here.</a></p>
+                                                    <form class="form-inline" id="populateKeyForm-authentication-sample"  role="form" <!--onsubmit="return btnPopulateKeys_onclick(this)"--> >
+                                                        
+                                                        <div class="form-group">
+                                                            <label class="sr-only" for="loginID">API Login ID</label>
+                                                            <input name ="txtLoginID-authentication-sample" type="text" class="form-control" id="txtLoginID-authentication-sample" placeholder="API Login ID">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="sr-only" for="transactionKey">Transaction Key</label>
+                                                            <input type="text" class="form-control" id="txtTransactionKey-authentication-sample" placeholder="Transaction Key">
+                                                        </div>
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        <button type="button"  onclick="Send()" class="btn btn-primary">Populate Sample Requests</button>
+                                                        <p class="bg-danger required btn" style="display:none;cursor: auto">Both are required fields</p>
+                                                    </form>
+                                                </div>
+                                                <div><span class="header">Response:</span>  <span id="spnStatusCode-authentication-sample" class="error"></span>
+                                                </div>
+                                                <div style="position:relative;">
+                                                    <textarea class="sample-response" id="txtRespXml-authentication-sample" name="txtRespXml" cols="80" rows="6">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;authenticateTestResponse xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns=&quot;AnetApi/xml/v1/schema/AnetApiSchema.xsd&quot;&gt;
+    &lt;messages&gt;
+        &lt;resultCode>Ok&lt;/resultCode&gt;
+        &lt;message&gt;
+            &lt;code>I00001&lt;/code&gt;
+            &lt;text>Successful.&lt;/text&gt;
+        &lt;/message&gt;
+    &lt;/messages&gt;
+&lt;/authenticateTestResponse&gt;
+                                                    </textarea>
+                                                    <textarea class="sample-json-response" id="txtRespJsn-authentication-sample" name="txtRespJsn" cols="80" rows="6" style="display:none!important">
+{
+    "messages": {
+        "resultCode": "Ok",
+        "message": [
+            {
+                "code": "I00001",
+                "text": "Successful."
+            }
+        ]
+    }
+}
+                                                    </textarea>
+                                                    <div id="txtRespLoader-authentication-sample" class="loaderContainer">
+                                                        <div class="loaderbg">Loading...</div>
+                                                        <div class="loader"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade in active" id="authentication-keys">
+                                                <form class="form-inline" role="form" id="populateKeyForm-main"  <!--onsubmit="return btnPopulateKeys_onclick(this)" -->>
+                                                    <div class="form-group">
+                                                        <label class="sr-only" for="loginID">API Login ID</label>
+                                                        <input type="text" class="form-control" id="txtLoginID-main" name = "txtLoginID-main" value="556KThWQ6vf2" placeholder="API Login ID">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="sr-only" for="transactionKey">Transaction Key</label>
+                                                        <input type="text" class="form-control" id="txtTransactionKey-main" name ="txtTransactionKey-main" value="9ac2932kQ7kN2Wzq" placeholder="Transaction Key">
+                                                    </div>
+                                                  <input type="button" id="submit_reg" class="btn btn-primary" value="Populate Sample Requests" >
+                                                    <p class="bg-danger btn required" style="display:none;cursor: auto">Both are required fields</p>
+                                                </form>
+                                            </div>
+                                             <div class="tab-pane fade in" id="authentication-endpoint">
+
+                                                <p>Request Method:  POST</p>                            
+                                                <p>Sandbox URL:     https://apitest.authorize.net/xml/v1/request.api</p>
+                                                <p>Production URL:  https://api.authorize.net/xml/v1/request.api</p>
+                    							<br/>
+                    							<p>XML              Content-Type:    text/xml</p>
+                    							<p>JSON             Content-Type:    application/json</p>
+                                            </div>
+                                        </div>
+                                    </div>
+ 
+											 
+</body>
+</html>
